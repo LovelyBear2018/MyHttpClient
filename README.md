@@ -12,6 +12,7 @@
     	<artifactId>CrawlerArtifact</artifactId>
     	<version>0.0.1</version>
 	</dependency>
+	注:由于jar并没有上传到maven中央仓库,故需要自己打包到本地仓库
 ### 2、添加DTD约束文件
     (1)若为开发环境,将DTD文件拷贝至项目根目录  
     (2)若为测试环境或线上环境tomcat服务,将DTD文件拷贝至tomcat/bin目录
