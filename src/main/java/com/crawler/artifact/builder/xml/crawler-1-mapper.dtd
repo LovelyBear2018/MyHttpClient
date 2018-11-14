@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!ELEMENT mapper (globalheaders*,charset?,settings?,proxy?,schedule*, get*,post*,options*,delete*,head*,put*)>
+<!ELEMENT settings (cache?)>
+<!ELEMENT get (url*,charset?,headers?,retry?, properties*)>
+<!ELEMENT post (url*,charset?,headers?,params?,retry?, properties*)>
+<!ELEMENT delete (url*,charset?,headers?,params?,retry?, properties*)>
+<!ELEMENT head (url*,charset?,headers?,params?,retry?, properties*)>
+<!ELEMENT put (url*,charset?,headers?,params?,retry?, properties*)>
+<!ELEMENT options (url*,charset?,headers?,params?,retry?, properties*)>
+<!ELEMENT headers (header*)>
+<!ELEMENT cache (#PCDATA)>
+<!ELEMENT schedule (#PCDATA)>
+<!ELEMENT retry (times, means*, re-proxy?)>
+<!ELEMENT globalheaders (header+)>
+<!ELEMENT params (param+)>
+<!ELEMENT properties (property*)>
+<!ELEMENT header (#PCDATA)>
+<!ELEMENT times (#PCDATA)>
+<!ELEMENT re-proxy (#PCDATA)>
+<!ELEMENT means (mean+)>
+<!ELEMENT mean (#PCDATA)>
+<!ELEMENT proxy (#PCDATA)>
+<!ELEMENT param (#PCDATA)>
+<!ELEMENT property (#PCDATA)>
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT charset (#PCDATA)>
+<!ATTLIST headers
+refid CDATA #IMPLIED
+>
+<!ATTLIST header
+name CDATA #REQUIRED
+value CDATA #REQUIRED
+>
+<!ATTLIST cache
+timeout CDATA #REQUIRED
+>
+<!ATTLIST times
+value CDATA #REQUIRED
+>
+<!ATTLIST mean
+type CDATA #REQUIRED
+value CDATA #REQUIRED
+>
+<!ATTLIST proxy
+serviceType CDATA #REQUIRED
+fcType CDATA #REQUIRED
+strategy CDATA #REQUIRED
+>
+<!ATTLIST globalheaders
+id CDATA #REQUIRED
+>
+<!ATTLIST param
+name CDATA #REQUIRED
+value CDATA #REQUIRED
+>
+<!ATTLIST properties
+resume CDATA #IMPLIED
+>
+<!ATTLIST property
+name CDATA #REQUIRED
+value CDATA #REQUIRED
+>
+<!ATTLIST schedule
+id CDATA #REQUIRED
+location CDATA #REQUIRED
+threadnum CDATA #IMPLIED
+timeout CDATA #IMPLIED
+>
+<!ATTLIST get
+id CDATA #REQUIRED
+>
+<!ATTLIST post
+id CDATA #REQUIRED
+>
+<!ATTLIST options
+id CDATA #REQUIRED
+>
+<!ATTLIST delete
+id CDATA #REQUIRED
+>
+<!ATTLIST put
+id CDATA #REQUIRED
+>
+<!ATTLIST head
+id CDATA #REQUIRED
+>
+<!ATTLIST mapper
+namespace CDATA #REQUIRED
+crawlertype CDATA #IMPLIED
+>
+<!ATTLIST url
+value CDATA #REQUIRED
+>

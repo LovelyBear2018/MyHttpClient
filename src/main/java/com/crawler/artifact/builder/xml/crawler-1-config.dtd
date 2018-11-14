@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!ELEMENT configuration (settings?,properties?,mappers?)>
+<!ELEMENT properties (property+)>
+<!ELEMENT settings (log?, cache?, cat?)>
+<!ELEMENT mappers (mapper*,pack*)>
+<!ELEMENT property (#PCDATA)>
+<!ELEMENT log (#PCDATA)>
+<!ELEMENT cache (#PCDATA)>
+<!ELEMENT cat (#PCDATA)>
+<!ELEMENT mapper (#PCDATA)>
+<!ELEMENT pack (#PCDATA)>
+<!ATTLIST property
+name CDATA #REQUIRED
+value CDATA #REQUIRED
+>
+<!ATTLIST log
+type CDATA #REQUIRED
+level CDATA #REQUIRED
+>
+<!ATTLIST cache
+timeout CDATA #REQUIRED
+>
+<!ATTLIST mapper
+resource CDATA #REQUIRED
+>
+<!ATTLIST pack
+value CDATA #REQUIRED
+>
+

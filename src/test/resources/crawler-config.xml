@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration SYSTEM "crawler-1-config.dtd">
+
+<configuration>
+
+	<settings>
+		<log type="log4j" level="info" />
+		<cache timeout="300" />
+	</settings>
+
+	<properties>
+		<property name="connectionTimeout" value="30000" />
+		<property name="socketTimeout" value="30000" />
+		<property name="maxConnectionsPerHost" value="200" />
+		<property name="maxTotalConnections" value="200" />
+	</properties>
+
+	<mappers>
+		<pack value="mappers/" />
+	</mappers>
+
+</configuration>
