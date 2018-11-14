@@ -5,16 +5,16 @@
     CrawlerArtifact,是一种通用爬虫框架,为网络爬虫开发提供了多种简洁实用的框架封装,包括HttpCrawler(底层为HttpClient)、HtmlUnit、SeleniumAppIUM等。并在此基础上,增加了一些特色功能,如缓存,请求重试,监控统计信息等。
 ##如何使用
     无论打算使用哪种封装框架,请先完成以下步骤1~3:
-###1、添加maven依赖
+### 1、添加maven依赖
     <dependency>
 	    <groupId>com.crawler.artifact</groupId>
     	<artifactId>CrawlerArtifact</artifactId>
     	<version>0.0.1</version>
 	</dependency>
-###2、添加DTD约束文件
+### 2、添加DTD约束文件
     (1)若为开发环境,将DTD文件拷贝至项目根目录  
     (2)若为测试环境或线上环境tomcat服务,将DTD文件拷贝至tomcat/bin目录
-###3、添加全局配置文件至 src/main/resource或src/test/resource下,格式为
+### 3、添加全局配置文件至 src/main/resource或src/test/resource下,格式为
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE configuration SYSTEM "crawler-1-config.dtd">
     <configuration>
@@ -61,7 +61,7 @@
         location:mapper.xml路径
      <pack>:
         value:mapper.xml所在文件夹路径
-###4、按照步骤3的mappers配置的mapper.xml路径,在对应resource路径下建立相应的mapper.xml文件,格式如下:
+### 4、按照步骤3的mappers配置的mapper.xml路径,在对应resource路径下建立相应的mapper.xml文件,格式如下:
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE mapper SYSTEM "crawler-1-mapper.dtd" >
     <mapper namespace="com.travelsky.umeckidelay.mappers.JdMapper" crawlertype="httpclient">
@@ -132,21 +132,21 @@
         value的cookie,location值判断响应location是否以value开头
     <properties>:连接参数,覆盖步骤3的properties
         resume:请求完毕是否恢复默认全局连接参数
-###5、按照mapper标签的namespace配置创建接口,例如按照上面配置,在com.travelsky.umeckidelay.mappers包下建立JdMapper接口    
+### 5、按照mapper标签的namespace配置创建接口,例如按照上面配置,在com.travelsky.umeckidelay.mappers包下建立JdMapper接口    
     public interface JdMapper {
     
     }
-###6、根据配置的schedule,get,post,option,head,put,delete标签的id,建立相应的方法,返回值为Response    
+### 6、根据配置的schedule,get,post,option,head,put,delete标签的id,建立相应的方法,返回值为Response    
     public interface JdMapper {
         Response login();
     }
-###7、给mapper添加@Crawler注解,选取抓取器类型,value值为CrawlerType.HTTPCLIENT,CrawlerType.HTMLUNIT,CrawlerType.SELENIUM
+### 7、给mapper添加@Crawler注解,选取抓取器类型,value值为CrawlerType.HTTPCLIENT,CrawlerType.HTMLUNIT,CrawlerType.SELENIUM
     @Crawler(CrawlerType.HTTPCLIENT)
     public interface JdMapper {
         Response login();
     }
     注:若不添加此注解,则采用mapper标签的crawlertype属性配置选取抓取器,若crawlertype属性未配置,则采用CrawlerType.HTTPCLIENT作为抓取器
-###8、为对应方法添加@Url,@RequestMethod,@Charset注解
+### 8、为对应方法添加@Url,@RequestMethod,@Charset注解
     @Crawler(CrawlerType.HTTPCLIENT)
     public interface JdMapper {    
         @Url("https://www.jd.com/")
@@ -158,7 +158,7 @@
        @Charset:值为CharSetType枚举类型
        @RequestMethod值为HttpMethodType枚举类型
        这部分注解值若与mapper.xml配置内容重复,则覆盖mapper.xml相关内容
-###9、添加@Start注解
+### 9、添加@Start注解
     @Crawler(CrawlerType.HTTPCLIENT)
     public interface JdMapper {   
         @Start
@@ -169,7 +169,7 @@
     }
     注:若该方法对应请求为SVC中的首次请求,需添加@Start注解
     
-###10、spring svc.xml配置
+### 10、spring svc.xml配置
     <import resource="classpath:applicationContext-CrawlerArtifact-svc.xml" />
     <aop:aspectj-autoproxy />
     <bean id="crawlerSessionFactory" class="com.travelsky.beans.CrawlerSessionFactoryBean">
@@ -182,7 +182,7 @@
     注:crawlerSessionFactory的value值为全局配置xml路径,根据自己实际路径替换
     jdMapper的value值为创建的Mapper接口全路径,根据自己实际路径替换
     
-###11、创建SVC并在spring svc.xml配置
+### 11、创建SVC并在spring svc.xml配置
     public class JdSVC implements IDelayWithChangeSVC{  
         @Resource
         JdMapper jdMapper;
@@ -203,7 +203,7 @@
         <property name="jdMapper" ref="jdMapper" />
     </bean>
     注:(1)创建jdMapper并添加@Resource注解,同时添加get和set方法
-###12、在SVC方法添加@Session和@Proxy(可选)
+### 12、在SVC方法添加@Session和@Proxy(可选)
     public class JdSVC implements IDelayWithChangeSVC{  
         @Resource
         JdMapper jdMapper;
@@ -219,7 +219,7 @@
         }
     }
     注:@Session注解表示可以按照上次抓取环境继续抓取,需遵守相应规约(见文章末尾<几个约束>第(1)条)
-###13、Mapper接口的方法内传参
+### 13、Mapper接口的方法内传参
 		Response getFlightList_login(@Url String url);
 		方法参数注解类型分为五种:
 		@Url:对应形参类型为String
