@@ -2,7 +2,8 @@
 ### <center>qq交流群: 237558423</center>
 ### <center>Revised by LiuZhiXiong</center>
 
-    CrawlerArtifact,是一种通用爬虫框架,为网络爬虫开发提供了多种简洁实用的框架封装,包括HttpCrawler(底层为HttpClient)、HtmlUnit、SeleniumAppIUM等。并在此基础上,增加了一些特色功能,如缓存,请求重试,监控统计信息等。
+    CrawlerArtifact,是一种通用爬虫框架,为网络爬虫开发提供了多种简洁实用的框架封装,包括HttpCrawler(底层为HttpClient)、  
+    HtmlUnit、SeleniumAppIUM等。并在此基础上,增加了一些特色功能,如缓存,请求重试,监控统计信息等。
 ##如何使用
     无论打算使用哪种封装框架,请先完成以下步骤1~3:
 ### 1、添加maven依赖
