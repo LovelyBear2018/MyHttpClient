@@ -228,7 +228,7 @@
 		@Cookies:对应形参类型为LoginCrawlerCookie
 		@Proxy:对应形参类型为String或HttpHost
 
-##几个约束
+## 几个约束
     (1)若需要根据上次抓取上下文继续抓取,需要添加@Session注解,同时SVC方法形参格式满足:(1)会话ID的形参名必须为SessionID,不区分大小写,形参位置无要求,形参个数无要求;或者(2)形参个数为1个,形参类型为Java Bean对象,该对象包含成员变量SessionID,不区分大小写,并包含get,set方法
     (2)SVC的Mapper成员变量名称必须以mapper结尾
     (3)Mapper接口内方法名称必须以SVC内方法名作为前缀,后缀根据url自己取名称,中间以_分隔,例如SVC方法名为login(),url为http://www.member.com,则mapper接口内方法名取名为login_member()
